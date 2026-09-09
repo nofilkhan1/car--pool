@@ -7,49 +7,47 @@
     <title>FAST RIDE SHARE — Lahore</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <div class="noise"></div>
-        <p class="eyebrow">FAST NUCES LAHORE × THE DAILY COMMUTE</p>
-        <div class="fare-sticker">PKR 400?<br /><em>be serious.</em></div>
-        <h1 id="hero-title" data-split>Petrol is wild.<br />Careem is <span>rude.</span><br />Your FAST ride<br />doesn’t have to be.</h1>
-        <p class="hero-copy">Same gates. Similar routes. Real people from FAST. Split the ride, keep the cash for chai.</p>
-        <a class="hero-cta" href="#join">tell me more <b>↓</b></a>
-        <div class="route-line" aria-hidden="true"><i></i><i></i><i></i><span>HOME → FAST → HOME</span></div>
+        <div class="hero-route" aria-hidden="true"><span>home</span><i></i><i></i><span>FAST</span></div>
+        <p class="hero-note">a small thought from the morning commute</p>
+        <h1 id="hero-title" data-split>Petrol keeps climbing. Ride fares keep guessing. Meanwhile, FAST students are already taking the same roads.</h1>
+        <div class="hero-bottom"><p>What if getting to campus felt a little more predictable—and a little less expensive?</p><a class="hero-cta" href="#join">See if your route has company <b>↓</b></a></div>
+        <p class="hero-credit">Concept by Nofil Khan, 25L-0757, FAST NUCES Lahore <span>· All rights reserved</span></p>
       </section>
 
-      <section class="proof" aria-label="Why this concept exists">
-        <p class="section-kicker">THE COMMUTE IS GETTING PERSONAL</p>
-        <div class="punch-grid">
-          <article class="punch punch-green"><span>01 / OOF</span><h2>Petrol prices<br />ate the vibe.</h2><p>A solo commute should not feel like a monthly subscription.</p><strong>↑ every. single. week.</strong></article>
-          <article class="punch punch-red"><span>02 / FARE JUMPS</span><h2>Surge pricing<br />has no shame.</h2><p>Careem and inDrive fares hit different when it’s 8am and you’re already late.</p><strong>PKR 300–600 one way</strong></article>
-          <article class="punch punch-cream"><span>03 / BETTER ENERGY</span><h2>Maybe your<br />carpool is a friend?</h2><p>One shared ride. More campus lore. Less awkward driver small talk.</p><strong>FAST-only, obviously.</strong></article>
+      <section class="problem" aria-label="The shared commute problem">
+        <div class="problem-intro"><p class="section-note">the awkward maths of getting to class</p><h2>A ride to campus is rarely just a ride to campus.</h2><p>It is petrol, timing, the weather, and that familiar moment when an app fare jumps just because it can.</p></div>
+        <div class="commute-notes">
+          <article class="receipt receipt-one"><p class="receipt-top">MONDAY, 8:06 AM</p><p>“The same trip was Rs. 280 last week.”</p><small>— every student, eventually</small></article>
+          <div class="road-rule" aria-hidden="true"><i></i><span>Johar Town · Wapda Town · DHA · Askari</span><i></i></div>
+          <article class="receipt receipt-two"><p class="receipt-top">A QUIETER ALTERNATIVE</p><p>Someone from FAST may already be leaving your area at almost the same time.</p><small>It seems worth finding out.</small></article>
         </div>
       </section>
 
       <section class="join" id="join" aria-labelledby="join-title">
-        <div class="join-intro"><p class="section-kicker">WE’RE JUST CHECKING THE VIBE</p><h2 id="join-title">Would this make your mornings less painful?</h2><p>Five tiny taps. Zero commitment. Help us map who rides where.</p><p class="credit">Concept by Nofil Khan,<br />25L-0757, FAST NUCES Lahore</p><p class="rights">All rights reserved</p></div>
+        <div class="join-intro"><p class="section-note">before we build anything</p><h2 id="join-title">Could sharing the road make sense for you?</h2><p>A few answers help us understand where people are coming from and when. Nothing here commits you to a ride.</p><p class="credit">Concept by Nofil Khan,<br />25L-0757, FAST NUCES Lahore</p><p class="rights">All rights reserved</p></div>
         <div class="form-shell">
-          <div class="form-top"><span id="step-count">01 / 05</span><div class="progress"><i id="progress-bar"></i></div></div>
+          <div class="form-top"><span id="step-count">1 of 5</span><div class="progress"><i id="progress-bar"></i></div></div>
           <form id="carpool-form">
             <div class="form-step active" data-step="0">
-              <fieldset><legend>What’s your gender?</legend><p class="hint">This helps keep ride matching comfortable.</p><div class="choice-set"><button type="button" data-field="gender" data-value="Woman">Woman</button><button type="button" data-field="gender" data-value="Man">Man</button><button type="button" data-field="gender" data-value="Prefer not to say">Prefer not to say</button></div></fieldset>
+              <fieldset><legend>What’s your gender?</legend><p class="hint">Only to make future matching feel more comfortable.</p><div class="choice-set"><button type="button" data-field="gender" data-value="Woman">Woman</button><button type="button" data-field="gender" data-value="Man">Man</button><button type="button" data-field="gender" data-value="Prefer not to say">Prefer not to say</button></div></fieldset>
             </div>
             <div class="form-step" data-step="1">
-              <label for="area">Which area / society do you leave from?</label><p class="hint">DHA, Johar Town, Wapda Town, Askari… you know the drill.</p><input id="area" name="area" placeholder="Type your area" autocomplete="address-level2" /><button class="next" type="button">next <b>→</b></button>
+              <label for="area">Which area do you usually leave from?</label><p class="hint">A society, landmark, or neighbourhood is enough.</p><input id="area" name="area" placeholder="e.g. Wapda Town" autocomplete="address-level2" /><button class="next" type="button">Continue <b>→</b></button>
             </div>
             <div class="form-step" data-step="2">
-              <fieldset><legend>Are you driving or riding?</legend><p class="hint">Both are equally iconic.</p><div class="choice-set"><button type="button" data-field="role" data-value="Driver">I can drive</button><button type="button" data-field="role" data-value="Rider">I need a ride</button><button type="button" data-field="role" data-value="Either">Either works</button></div></fieldset>
+              <fieldset><legend>How would you use a carpool?</legend><p class="hint">There is room for both drivers and riders here.</p><div class="choice-set"><button type="button" data-field="role" data-value="Driver">I could drive</button><button type="button" data-field="role" data-value="Rider">I would ride</button><button type="button" data-field="role" data-value="Either">Either, honestly</button></div></fieldset>
             </div>
             <div class="form-step" data-step="3">
-              <label for="timing">Your route / timing + batch?</label><p class="hint">e.g. DHA Phase 6 → FAST, 8:15am · 25L</p><input id="timing" name="timing" placeholder="My usual route…" /><button class="next" type="button">next <b>→</b></button>
+              <label for="timing">When do you usually head to FAST?</label><p class="hint">Your route and a rough time are perfect. e.g. DHA → FAST, around 8:15</p><input id="timing" name="timing" placeholder="My usual route and timing" /><button class="next" type="button">Continue <b>→</b></button>
             </div>
             <div class="form-step" data-step="4">
-              <fieldset><legend>How into this are you?</legend><div class="choice-set"><button type="button" data-field="interest_level" data-value="Take my number">Take my number</button><button type="button" data-field="interest_level" data-value="Keep me posted">Keep me posted</button><button type="button" data-field="interest_level" data-value="Just curious">Just curious</button></div></fieldset>
+              <label for="whatsapp">WhatsApp number <em>(optional)</em></label><p class="hint">Only if you would like to hear when this becomes real.</p><input id="whatsapp" name="whatsapp" type="tel" placeholder="03XX XXXXXXX" autocomplete="tel" /><button class="next" type="button">One last question <b>→</b></button>
             </div>
           </form>
           <p id="form-status" aria-live="polite"></p>
@@ -57,13 +55,13 @@
       </section>
 
       <section class="final" id="final" hidden aria-labelledby="final-title">
-        <p class="section-kicker">ONE LAST THING</p>
+        <p class="section-note">one last thing</p>
         <h2 id="final-title">Did you like this idea?<br />Would you join once it’s live?</h2>
-        <div class="final-options"><button data-final="Yes">Yes, 100%</button><button data-final="Interested, notify me">Interested, notify me</button><button data-final="Not now">Not now</button></div>
+        <div class="final-options"><button data-final="Yes">Yes, I would</button><button data-final="Interested, notify me">Interested, notify me</button><button data-final="Not now">Not right now</button></div>
         <p class="thanks" aria-live="polite"></p>
       </section>
     </main>
-    <footer><span>FAST RIDE SHARE / NOT LIVE YET, BUT MAYBE SOON.</span><span>Concept by Nofil Khan, 25L-0757, FAST NUCES Lahore</span><strong>All rights reserved</strong></footer>
+    <footer><span>FAST carpool — a campus idea in progress.</span><span>Concept by Nofil Khan, 25L-0757, FAST NUCES Lahore</span><strong>All rights reserved</strong></footer>
     <script type="module" src="./app.js"></script>
   </body>
 </html>
