@@ -27,10 +27,10 @@ let current = 0;
 const stepCount = document.querySelector('#step-count');
 const bar = document.querySelector('#progress-bar');
 const status = document.querySelector('#form-status');
-const formCue = document.querySelector('.form-cue');
+const formCues = [...document.querySelectorAll('.form-cue-desktop, .form-cue-mobile')];
 const joinSection = document.querySelector('#join');
-if (formCue && joinSection && 'IntersectionObserver' in window) {
-  new IntersectionObserver(([entry]) => formCue.classList.toggle('is-hidden', entry.isIntersecting), { threshold: .2 }).observe(joinSection);
+if (formCues.length && joinSection && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => formCues.forEach(cue => cue.classList.toggle('is-hidden', entry.isIntersecting)), { threshold: .2 }).observe(joinSection);
 }
 function move(next) {
   const old = steps[current]; const incoming = steps[next];
