@@ -14,5 +14,6 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(-
 .hero-cta{transform:translate(-.4rem,.35rem)}
 .hero-bottom .hero-cta{margin-left:5rem}
 .problem{padding-left:clamp(1.4rem,7vw,7rem)}
-.hero h1{line-height:1.12}
-@media(max-width:760px){.join-intro{min-height:0}.join-intro .credit{margin-top:2.8rem;padding-top:0}.hero h1{line-height:1.1}.hero-cta{transform:translate(-.2rem,.35rem);margin-left:0}.problem{padding-left:1.2rem}}
+.hero h1{font-size:clamp(2.25rem,4vw,3.8rem);line-height:1.08;max-width:1100px}
+@media(max-width:760px){.join-intro{min-height:0}.join-intro .credit{margin-top:2.8rem;padding-top:0}.hero h1{font-size:clamp(1.95rem,8vw,2.85rem);line-height:1.08}.hero-cta{transform:translate(-.2rem,.35rem);margin-left:0}.problem{padding-left:1.2rem}}
+@media(max-width:390px){.hero{min-height:780px;padding-inline:1rem}.hero h1{font-size:1.85rem;line-height:1.08}.hero-route{right:1rem;font-size:.62rem}.hero-route i{width:18px}.hero-route i:first-of-type:after{transform:translate(12px,-4px)}.hero-note{font-size:.95rem}.hero-bottom p{font-size:.95rem}.join-intro h2,.problem-intro h2{font-size:2.15rem}}
