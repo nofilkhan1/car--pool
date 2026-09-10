@@ -12,4 +12,5 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(-
 .form-shell{border-top:0;padding-top:0}
 .hero-note,.section-note,.hint,.receipt small,.receipt-top,.hero-credit,.rights,footer{font-size:.88rem}
 .hero-cta{transform:translate(-.4rem,.35rem)}
-@media(max-width:760px){.join-intro{min-height:0}.join-intro .credit{margin-top:2.8rem;padding-top:0}.hero-cta{transform:translate(-.2rem,.35rem)}}
+.hero-bottom .hero-cta{margin-left:2rem}
+@media(max-width:760px){.join-intro{min-height:0}.join-intro .credit{margin-top:2.8rem;padding-top:0}.hero-cta{transform:translate(-.2rem,.35rem);margin-left:0}}
