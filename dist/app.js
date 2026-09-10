@@ -1,3 +1,9 @@
+// Prevent mobile browsers from restoring a previous deep scroll position on load.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+const resetInitialScroll = () => window.scrollTo(0, 0);
+resetInitialScroll();
+window.addEventListener('pageshow', resetInitialScroll, { once: true });
+
 import { animate, inView, stagger } from 'https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm';
 const SUBMISSION_URL = 'https://script.google.com/macros/s/AKfycbwJ8dC0hASvprAda_0qFH6RSHImd3GgZ1v7q6SpbsIn2dbUSJmp9XdZWzA5WeN25E2A3w/exec';
 
