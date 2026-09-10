@@ -7,6 +7,11 @@
     <title>FAST RIDE SHARE — Lahore</title>
     <script>
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      // Strip stale deep-link hashes only during the initial document load.
+      // User clicks later in the session still perform normal anchor navigation.
+      if (window.location.hash) {
+        history.replaceState(null, document.title, window.location.pathname + window.location.search);
+      }
       document.documentElement.style.scrollBehavior = 'auto';
       window.scrollTo(0, 0);
       requestAnimationFrame(() => document.documentElement.style.removeProperty('scroll-behavior'));
