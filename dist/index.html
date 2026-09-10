@@ -32,22 +32,28 @@
       <section class="join" id="join" aria-labelledby="join-title">
         <div class="join-intro"><p class="section-note">before we build anything</p><h2 id="join-title">Could sharing the road make sense for you?</h2><p>A few answers help us understand where people are coming from and when. Nothing here commits you to a ride.</p><p class="credit">Concept by Nofil Khan,<br />25L-0757, FAST NUCES Lahore</p><p class="rights">All rights reserved</p></div>
         <div class="form-shell">
-          <div class="form-top"><span id="step-count">1 of 5</span><div class="progress"><i id="progress-bar"></i></div></div>
+          <div class="form-top"><span id="step-count">1 of 7</span><div class="progress"><i id="progress-bar"></i></div></div>
           <form id="carpool-form">
             <div class="form-step active" data-step="0">
               <fieldset><legend>What’s your gender?</legend><p class="hint">Only to make future matching feel more comfortable.</p><div class="choice-set"><button type="button" data-field="gender" data-value="Woman">Woman</button><button type="button" data-field="gender" data-value="Man">Man</button><button type="button" data-field="gender" data-value="Prefer not to say">Prefer not to say</button></div></fieldset>
             </div>
             <div class="form-step" data-step="1">
-              <label for="area">Which area do you usually leave from?</label><p class="hint">A society, landmark, or neighbourhood is enough.</p><input id="area" name="area" placeholder="e.g. Wapda Town" autocomplete="address-level2" /><button class="next" type="button">Continue <b>→</b></button>
+              <label for="batch">What’s your batch?</label><p class="hint">A batch code or year is perfect — e.g. 25L or 2025.</p><input id="batch" name="batch" placeholder="e.g. 25L" autocomplete="organization" /><button class="next" type="button">Continue <b>→</b></button>
             </div>
             <div class="form-step" data-step="2">
-              <fieldset><legend>How would you use a carpool?</legend><p class="hint">There is room for both drivers and riders here.</p><div class="choice-set"><button type="button" data-field="role" data-value="Driver">I could drive</button><button type="button" data-field="role" data-value="Rider">I would ride</button><button type="button" data-field="role" data-value="Either">Either, honestly</button></div></fieldset>
+              <label for="area">Which area do you usually leave from?</label><p class="hint">A society, landmark, or neighbourhood is enough.</p><input id="area" name="area" placeholder="e.g. Wapda Town" autocomplete="address-level2" /><button class="next" type="button">Continue <b>→</b></button>
             </div>
             <div class="form-step" data-step="3">
-              <label for="timing">When do you usually head to FAST?</label><p class="hint">Your route and a rough time are perfect. e.g. DHA → FAST, around 8:15</p><input id="timing" name="timing" placeholder="My usual route and timing" /><button class="next" type="button">Continue <b>→</b></button>
+              <fieldset><legend>How would you use a carpool?</legend><p class="hint">There is room for both drivers and riders here.</p><div class="choice-set"><button type="button" data-field="role" data-value="Driver">I could drive</button><button type="button" data-field="role" data-value="Rider">I would ride</button><button type="button" data-field="role" data-value="Either">Either, honestly</button></div></fieldset>
             </div>
             <div class="form-step" data-step="4">
+              <label for="timing">When do you usually head to FAST?</label><p class="hint">Your route and a rough time are perfect. e.g. DHA → FAST, around 8:15</p><input id="timing" name="timing" placeholder="My usual route and timing" /><button class="next" type="button">Continue <b>→</b></button>
+            </div>
+            <div class="form-step" data-step="5">
               <label for="whatsapp">WhatsApp number <em>(optional)</em></label><p class="hint">Only if you would like to hear when this becomes real.</p><input id="whatsapp" name="whatsapp" type="tel" placeholder="03XX XXXXXXX" autocomplete="tel" /><button class="next" type="button">One last question <b>→</b></button>
+            </div>
+            <div class="form-step" data-step="6">
+              <fieldset><legend>If you were getting a ride, would you be comfortable paying for it?</legend><p class="hint">A fair contribution keeps the carpool comfortable for everyone.</p><div class="choice-set"><button type="button" data-field="paymentWillingness" data-value="Yes, happy to pay a fair rate">Yes, happy to pay a fair rate</button><button type="button" data-field="paymentWillingness" data-value="Only if it’s cheaper than Careem/inDrive">Only if it’s cheaper than Careem/inDrive</button><button type="button" data-field="paymentWillingness" data-value="Not sure yet">Not sure yet</button></div></fieldset>
             </div>
           </form>
           <p id="form-status" aria-live="polite"></p>

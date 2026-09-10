@@ -11,7 +11,7 @@ animate('.word > i', { y: ['110%', '0%'], opacity: [0, 1] }, { duration: .7, del
 inView('.commute-notes', el => animate(el.querySelectorAll('.receipt'), { opacity: [0, 1], y: [18, 0] }, { duration: .55, delay: stagger(.16), easing: 'ease-out' }), { amount: .4 });
 
 const steps = [...document.querySelectorAll('.form-step')];
-const values = { name: null, batch: null, gender: null, area: null, role: null, timing: null, whatsapp: null, interest_level: null };
+const values = { name: null, batch: null, gender: null, area: null, role: null, timing: null, whatsapp: null, interest: null, paymentWillingness: null };
 let current = 0;
 const stepCount = document.querySelector('#step-count');
 const bar = document.querySelector('#progress-bar');
@@ -22,23 +22,22 @@ function move(next) {
     old.classList.remove('active'); incoming.classList.add('active');
     animate(incoming, { opacity: [0, 1], x: [26, 0] }, { duration: .32, easing: 'ease-out' });
   });
-  current = next; stepCount.textContent = `${current + 1} of 5`; bar.style.width = `${(current + 1) * 20}%`;
+  current = next; stepCount.textContent = `${current + 1} of ${steps.length}`; bar.style.width = `${((current + 1) / steps.length) * 100}%`;
 }
 function saveInput() { const input = steps[current].querySelector('input'); if (!input) return true; if (!input.value.trim() && input.name !== 'whatsapp') { status.textContent = 'A small detail helps us understand the route.'; input.focus(); return false; } status.textContent = ''; values[input.name] = input.value.trim() || null; return true; }
-document.querySelectorAll('[data-field]').forEach(btn => btn.addEventListener('click', () => {
-  values[btn.dataset.field] = btn.dataset.value;
-  move(current + 1);
-}));
-document.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', () => { if (saveInput()) current === 4 ? showFinal() : move(current + 1); }));
+document.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', () => { if (saveInput()) current === steps.length - 1 ? showFinal() : move(current + 1); }));
 function inferBatch(text) { const match = text.match(/\b\d{2}[A-Za-z](?:-|\s)?\d{3,4}\b|\b\d{2}[A-Za-z]\b/i); return match ? match[0].replace(/\s/g, '') : null; }
 function showFinal() {
-  values.batch = inferBatch(values.timing || '');
   status.textContent = '';
   document.querySelector('.join').hidden = true;
   const final = document.querySelector('#final'); final.hidden = false;
   final.scrollIntoView({ behavior: 'smooth' });
   animate('.final h2, .final-options button', { opacity: [0, 1], y: [16, 0] }, { duration: .45, delay: stagger(.1), easing: 'ease-out' });
 }
+document.querySelectorAll('[data-field]').forEach(btn => btn.addEventListener('click', () => {
+  values[btn.dataset.field] = btn.dataset.value;
+  if (current === steps.length - 1) showFinal(); else move(current + 1);
+}));
 document.querySelectorAll('[data-final]').forEach(btn => btn.addEventListener('click', async () => {
   values.interest = btn.dataset.final;
   const thanks = document.querySelector('.thanks');
