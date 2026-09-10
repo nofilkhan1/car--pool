@@ -7,8 +7,13 @@ heading.innerHTML = heading.innerHTML.split(/(<br\s*\/?\s*>|<span>.*?<\/span>)/g
   if (/^<span/i.test(part)) return `<span class="word"><i>${part.replace(/<\/?span>/g, '')}</i></span>`;
   return part.split(/(\s+)/).map(word => /\s/.test(word) ? word : `<span class="word"><i>${word}</i></span>`).join('');
 }).join('');
-animate('.word > i', { y: ['110%', '0%'], opacity: [0, 1] }, { duration: .7, delay: stagger(.055), easing: [0.22, 1, 0.36, 1] });
-inView('.commute-notes', el => animate(el.querySelectorAll('.receipt'), { opacity: [0, 1], y: [18, 0] }, { duration: .55, delay: stagger(.16), easing: 'ease-out' }), { amount: .4 });
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceMotion) {
+  document.querySelectorAll('.word > i').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+} else {
+  animate('.word > i', { y: ['110%', '0%'], opacity: [0, 1] }, { duration: .7, delay: stagger(.055), easing: [0.22, 1, 0.36, 1] });
+  inView('.commute-notes', el => animate(el.querySelectorAll('.receipt'), { opacity: [0, 1], y: [18, 0] }, { duration: .55, delay: stagger(.16), easing: 'ease-out' }), { amount: .4 });
+}
 
 const steps = [...document.querySelectorAll('.form-step')];
 const values = { name: null, batch: null, gender: null, area: null, role: null, timing: null, whatsapp: null, interest: null, paymentWillingness: null };
@@ -31,8 +36,9 @@ function showFinal() {
   status.textContent = '';
   document.querySelector('.join').hidden = true;
   const final = document.querySelector('#final'); final.hidden = false;
-  final.scrollIntoView({ behavior: 'smooth' });
-  animate('.final h2, .final-options button', { opacity: [0, 1], y: [16, 0] }, { duration: .45, delay: stagger(.1), easing: 'ease-out' });
+  final.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+  final.focus({ preventScroll: true });
+  if (!reduceMotion) animate('.final h2, .final-options button', { opacity: [0, 1], y: [16, 0] }, { duration: .45, delay: stagger(.1), easing: 'ease-out' });
 }
 document.querySelectorAll('[data-field]').forEach(btn => btn.addEventListener('click', () => {
   values[btn.dataset.field] = btn.dataset.value;

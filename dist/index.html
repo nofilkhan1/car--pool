@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./a11y.css" />
   </head>
   <body>
     <main>
@@ -60,7 +61,7 @@
         </div>
       </section>
 
-      <section class="final" id="final" hidden aria-labelledby="final-title">
+      <section class="final" id="final" hidden tabindex="-1" aria-labelledby="final-title">
         <p class="section-note">one last thing</p>
         <h2 id="final-title">Did you like this idea?<br />Would you join once it’s live?</h2>
         <div class="final-options"><button data-final="Yes">Yes, I would</button><button data-final="Interested, notify me">Interested, notify me</button><button data-final="Not now">Not right now</button></div>
