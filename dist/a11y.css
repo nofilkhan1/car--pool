@@ -1,6 +1,7 @@
 /* Accessibility baseline: touch targets, keyboard focus, and reduced-motion safety. */
 button,a{cursor:pointer}
 html,body{overflow-x:hidden}
+main [hidden]{display:none!important}
 .choice-set button,.final-options button,.next{min-height:44px}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--olive);outline-offset:3px}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
