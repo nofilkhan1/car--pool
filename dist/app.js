@@ -29,7 +29,20 @@ function move(next) {
   });
   current = next; stepCount.textContent = `${current + 1} of ${steps.length}`; bar.style.width = `${((current + 1) / steps.length) * 100}%`;
 }
-function saveInput() { const input = steps[current].querySelector('input'); if (!input) return true; if (!input.value.trim() && input.name !== 'whatsapp') { status.textContent = 'A small detail helps us understand the route.'; input.focus(); return false; } status.textContent = ''; values[input.name] = input.value.trim() || null; return true; }
+function saveInput() {
+  const input = steps[current].querySelector('input');
+  if (!input) return true;
+  const value = input.value.trim();
+  if (!value && input.name !== 'whatsapp') { status.textContent = 'A small detail helps us understand the route.'; input.focus(); return false; }
+  if (input.name === 'batch' && !/^(?:\d{2}[A-Za-z](?:[-\s]?\d{3,4})?|\d{4})$/.test(value)) {
+    status.textContent = 'Use a batch like 25L, 25L-0757, or your four-digit batch year.';
+    input.focus();
+    return false;
+  }
+  status.textContent = '';
+  values[input.name] = value || null;
+  return true;
+}
 document.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', () => { if (saveInput()) current === steps.length - 1 ? showFinal() : move(current + 1); }));
 function inferBatch(text) { const match = text.match(/\b\d{2}[A-Za-z](?:-|\s)?\d{3,4}\b|\b\d{2}[A-Za-z]\b/i); return match ? match[0].replace(/\s/g, '') : null; }
 function showFinal() {

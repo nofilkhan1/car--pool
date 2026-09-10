@@ -3,3 +3,12 @@ button,a{cursor:pointer}
 .choice-set button,.final-options button,.next{min-height:44px}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--olive);outline-offset:3px}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Editorial rhythm and join-section alignment. */
+.join{align-items:stretch}
+.join-intro{display:flex;flex-direction:column;min-height:390px}
+.join-intro .credit{margin-top:auto;padding-top:2.5rem}
+.form-shell{border-top:0;padding-top:0}
+.hero-note,.section-note,.hint,.receipt small,.receipt-top,.hero-credit,.rights,footer{font-size:.88rem}
+.hero-cta{transform:translate(-.4rem,.35rem)}
+@media(max-width:760px){.join-intro{min-height:0}.join-intro .credit{margin-top:2.8rem;padding-top:0}.hero-cta{transform:translate(-.2rem,.35rem)}}
