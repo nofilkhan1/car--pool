@@ -27,6 +27,11 @@ let current = 0;
 const stepCount = document.querySelector('#step-count');
 const bar = document.querySelector('#progress-bar');
 const status = document.querySelector('#form-status');
+const formCue = document.querySelector('.form-cue');
+const joinSection = document.querySelector('#join');
+if (formCue && joinSection && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => formCue.classList.toggle('is-hidden', entry.isIntersecting), { threshold: .2 }).observe(joinSection);
+}
 function move(next) {
   const old = steps[current]; const incoming = steps[next];
   animate(old, { opacity: [1, 0], x: [0, -24] }, { duration: .18 }).finished.then(() => {
