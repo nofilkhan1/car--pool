@@ -1,10 +1,5 @@
 import { animate, inView, stagger } from 'https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm';
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.8';
-
-// Add your public Supabase project values here before launch. These are safe browser-side values.
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-const supabase = SUPABASE_URL.startsWith('https://') ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+const SUBMISSION_URL = 'https://script.google.com/macros/s/AKfycbwJ8dC0hASvprAda_0qFH6RSHImd3GgZ1v7q6SpbsIn2dbUSJmp9XdZWzA5WeN25E2A3w/exec';
 
 const heading = document.querySelector('[data-split]');
 heading.innerHTML = heading.innerHTML.split(/(<br\s*\/?\s*>|<span>.*?<\/span>)/gi).map(part => {
@@ -44,4 +39,14 @@ function showFinal() {
   final.scrollIntoView({ behavior: 'smooth' });
   animate('.final h2, .final-options button', { opacity: [0, 1], y: [16, 0] }, { duration: .45, delay: stagger(.1), easing: 'ease-out' });
 }
-document.querySelectorAll('[data-final]').forEach(btn => btn.addEventListener('click', async () => { values.interest_level = btn.dataset.final; const thanks = document.querySelector('.thanks'); thanks.textContent = 'Saving your response…'; if (supabase) { const { error } = await supabase.from('carpool_interest').insert([{ ...values, timestamp: new Date().toISOString() }]); if (error) { thanks.textContent = 'That did not save just now. Please try again.'; return; } } thanks.textContent = btn.dataset.final === 'Not now' ? 'Fair enough. The idea will be here when the timing is right.' : 'Thank you. We will let you know when the next step is ready.'; }));
+document.querySelectorAll('[data-final]').forEach(btn => btn.addEventListener('click', async () => {
+  values.interest = btn.dataset.final;
+  const thanks = document.querySelector('.thanks');
+  thanks.textContent = 'Sending your response…';
+  try {
+    await fetch(SUBMISSION_URL, { method: 'POST', mode: 'no-cors', credentials: 'omit', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(values) });
+    thanks.textContent = btn.dataset.final === 'Not now' ? 'Fair enough. The idea will be here when the timing is right.' : 'Thank you. We will let you know when the next step is ready.';
+  } catch (error) {
+    thanks.textContent = 'That did not save just now. Please try again.';
+  }
+}));
