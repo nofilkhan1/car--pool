@@ -22,7 +22,7 @@ if (reduceMotion) {
 }
 
 const steps = [...document.querySelectorAll('.form-step')];
-const values = { name: null, batch: null, gender: null, area: null, role: null, timing: null, whatsapp: null, interest: null, paymentWillingness: null };
+const values = { gender: null, batch: null, role: null, paymentWillingness: null, interest: null };
 let current = 0;
 const stepCount = document.querySelector('#step-count');
 const bar = document.querySelector('#progress-bar');
@@ -44,7 +44,7 @@ function saveInput() {
   const input = steps[current].querySelector('input');
   if (!input) return true;
   const value = input.value.trim();
-  if (!value && input.name !== 'whatsapp') { status.textContent = 'A small detail helps us understand the route.'; input.focus(); return false; }
+  if (!value) { status.textContent = 'A small detail helps us understand the route.'; input.focus(); return false; }
   if (input.name === 'batch' && !/^(?:\d{2}[A-Za-z](?:[-\s]?\d{3,4})?|\d{4})$/.test(value)) {
     status.textContent = 'Use a batch like 25L, 25L-0757, or your four-digit batch year.';
     input.focus();
@@ -55,7 +55,6 @@ function saveInput() {
   return true;
 }
 document.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', () => { if (saveInput()) current === steps.length - 1 ? showFinal() : move(current + 1); }));
-function inferBatch(text) { const match = text.match(/\b\d{2}[A-Za-z](?:-|\s)?\d{3,4}\b|\b\d{2}[A-Za-z]\b/i); return match ? match[0].replace(/\s/g, '') : null; }
 function showFinal() {
   status.textContent = '';
   document.querySelector('.join').hidden = true;
